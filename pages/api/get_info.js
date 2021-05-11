@@ -2,8 +2,12 @@
 const ytdl = require('ytdl-core')
 
 export default async(req, res) => {
-    let URL = req.query.URL;
-    // let id = URL.replace('https://youtu.be/', '')
-    let data = await ytdl.getInfo(URL)
-    res.status(200).send(data)
+    try {
+        let URL = req.query.URL;
+        let data = await ytdl.getInfo(URL)
+        res.status(200).send(data)
+    } catch (error) {
+        res.status(200).send(error)
+        
+    }
 }
