@@ -14,7 +14,7 @@ export default (req, res) => {
         locale: 'vi'       
       })
     
-    res.setHeader('Content-Disposition', `attachment; filename="@OgabekYuldoshev-${generate}.mp4"`)
+    res.setHeader('Content-Disposition', `attachment; filename="anonym-${generate}.mp4"`)
     ytdl(URL, {
         filter: format => format.itag == itag
     }).pipe(res)
