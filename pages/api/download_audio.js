@@ -2,9 +2,8 @@
 const ytdl = require('ytdl-core')
 const slugify = require('slugify')
 
-export default (req, res) => {
+export default async (req, res) => {
     let URL = req.query.URL;
-    let itag = req.query.itag;
     let name = req.query.name;
     let generate = slugify(name, {
         replacement: '-', 
@@ -14,9 +13,11 @@ export default (req, res) => {
         locale: 'vi'       
       })
     
-    res.setHeader('Content-Disposition', `attachment; filename="anonym-${generate}.mp4"`)
-    ytdl(URL, {
-        format:'mp4',
-        filter: format => format.itag == itag
-    }).pipe(res)
+    res.setHeader('Content-Disposition', `attachment; filename="anonym-${generate}.mp3"`)
+    const audio = ytdl(URL, {
+        quality: 'highestaudio',
+        filter: 'audioonly',
+        format: 'mp3'
+    })
+    audio.pipe(res)
 }
