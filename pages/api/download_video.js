@@ -19,12 +19,9 @@ export default async (req, res) => {
             quality: 'highestvideo',
             filter: 'videoandaudio',
             format: 'mp4',
-            requestOptions:{
-                maxAge: 5
-            }
         })
         video.pipe(res)
     } catch (error) {
-        res.status(200).send(error)
+        res.status(500).send(error)
     }
 }
