@@ -14,7 +14,7 @@ export default async (req, res) => {
       })
     
     res.setHeader('Content-Disposition', `attachment; filename="anonym-${generate}.mp4"`)
-    const video = ytdl(URL, {
+    const video = await ytdl(URL, {
         quality: 'highestvideo',
         filter: 'videoandaudio',
         format: 'mp4'

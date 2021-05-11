@@ -14,7 +14,7 @@ export default async (req, res) => {
       })
     
     res.setHeader('Content-Disposition', `attachment; filename="anonym-${generate}.mp3"`)
-    const audio = ytdl(URL, {
+    const audio = await ytdl(URL, {
         quality: 'highestaudio',
         filter: 'audioonly',
         format: 'mp3'
