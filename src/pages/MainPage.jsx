@@ -27,7 +27,7 @@ export default function MainPage(){
     const DownloadVideo = () => {
         window.open(`/api/download?URL=${url}&itag=${select}&name=${name}`)
     }
-
+    
     return(
         <div className="bg-gray-50 flex items-center justify-center relative w-full h-screen">
             <div className="flex flex-col items-center justify-center">

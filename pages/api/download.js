@@ -16,6 +16,7 @@ export default (req, res) => {
     
     res.setHeader('Content-Disposition', `attachment; filename="anonym-${generate}.mp4"`)
     ytdl(URL, {
+        format:'mp4',
         filter: format => format.itag == itag
     }).pipe(res)
 }
