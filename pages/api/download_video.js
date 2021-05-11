@@ -18,9 +18,12 @@ export default async (req, res) => {
         const video = await ytdl(URL, {
             quality: 'highestvideo',
             filter: 'videoandaudio',
-            format: 'mp4'
+            format: 'mp4',
+            requestOptions:{
+                maxAge: 5
+            }
         })
-        res.status(200).send(video)
+        video.pipe(res)
     } catch (error) {
         res.status(200).send(error)
     }

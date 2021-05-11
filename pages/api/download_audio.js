@@ -18,9 +18,12 @@ export default async (req, res) => {
         const audio = await ytdl(URL, {
             quality: 'highestaudio',
             filter: 'audioonly',
-            format: 'mp3'
+            format: 'mp3',
+            requestOptions:{
+                maxAge: 5
+            }
         })
-        res.status(200).send(audio)
+        audio.pipe(res)
     } catch (error) {
         res.status(200).send(error)
     }
