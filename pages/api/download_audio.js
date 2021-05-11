@@ -20,7 +20,7 @@ export default async (req, res) => {
             filter: 'audioonly',
             format: 'mp3'
         })
-        audio.pipe(res)
+        res.status(200).send(audio)
     } catch (error) {
         res.status(200).send(error)
     }

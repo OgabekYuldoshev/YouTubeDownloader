@@ -20,7 +20,7 @@ export default async (req, res) => {
             filter: 'videoandaudio',
             format: 'mp4'
         })
-        video.pipe(res)
+        res.status(200).send(video)
     } catch (error) {
         res.status(200).send(error)
     }
