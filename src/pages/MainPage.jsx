@@ -25,7 +25,7 @@ export default function MainPage(){
     }
 
     const DownloadVideo = () => {
-        window.location.href = `/api/download?URL=${url}&itag=${select}&name=${name}`
+        window.open(`/api/download?URL=${url}&itag=${select}&name=${name}`)
     }
 
     return(
