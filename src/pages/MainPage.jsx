@@ -18,10 +18,10 @@ export default function MainPage(){
     }
 
     const DownloadVideo = () => {
-        window.open(`/api/download_video?URL=${url}&name=${name}`)
+        window.location = (`/api/download_video?URL=${url}&name=${name}`)
     }
     const DownloadAudio = () => {
-        window.open(`/api/download_audio?URL=${url}&name=${name}`)
+        window.location = (`/api/download_audio?URL=${url}&name=${name}`)
     }
     
     return(
